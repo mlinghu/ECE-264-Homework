@@ -1,0 +1,14 @@
+Starting program: /home/shay/b/mlinghu/ECE264/solutions/Homework/PA02/a.out 
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004005d9 in my_strchr ()
+A debugging session is active.
+
+	Inferior 1 [process 27505] will be killed.
+
+Quit anyway? (y or n) Not confirmed.
+Continuing.
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
+The program is not being run.

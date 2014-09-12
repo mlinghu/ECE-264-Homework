@@ -1,14 +1,81 @@
+Breakpoint 1 at 0x40050c: file answer02.c, line 6.
+Breakpoint 2 at 0x4008aa: file pa02.c, line 24.
+Breakpoint 3 at 0x40058a: file answer02.c, line 31.
 Starting program: /home/shay/b/mlinghu/ECE264/solutions/Homework/PA02/a.out 
 
-Program received signal SIGSEGV, Segmentation fault.
-0x00000000004005d9 in my_strchr ()
-A debugging session is active.
-
-	Inferior 1 [process 27505] will be killed.
-
-Quit anyway? (y or n) Not confirmed.
+Breakpoint 2, main (argc=1, argv=0x7fffffffe478) at pa02.c:26
+26	    const char * s1 = "Hello World!";
+27	    const char * s2 = "";
+22		   "Don't forget to post questions on blackboard, and ask\n"
+23		   "the TAs and your classmates for help.\n"
+24		   "\n");
+25	
+26	    const char * s1 = "Hello World!";
+27	    const char * s2 = "";
+28	    const char * s3 = "foo";
+29	
+30	    // -- my_strlen, should be: 12, 0, and 3
+31	    printf("my_strlen(\"%s\") = %d\n", s1, (int) my_strlen(s1));
+28	    const char * s3 = "foo";
+31	    printf("my_strlen(\"%s\") = %d\n", s1, (int) my_strlen(s1));
 Continuing.
 
-Program terminated with signal SIGSEGV, Segmentation fault.
-The program no longer exists.
-The program is not being run.
+Breakpoint 1, my_strlen (str=0x400d90 "Hello World!") at answer02.c:6
+warning: Source file is more recent than executable.
+6	  int length = 0;
+7	  while (str[length] != '\0') 
+9	      length++;
+7	  while (str[length] != '\0') 
+9	      length++;
+7	  while (str[length] != '\0') 
+9	      length++;
+$1 = 2
+7	  while (str[length] != '\0') 
+9	      length++;
+7	  while (str[length] != '\0') 
+9	      length++;
+7	  while (str[length] != '\0') 
+9	      length++;
+$2 = 5
+Continuing.
+
+Breakpoint 1, my_strlen (str=0x400d9d "") at answer02.c:6
+6	  int length = 0;
+Continuing.
+
+Breakpoint 1, my_strlen (str=0x400d9e "foo") at answer02.c:6
+6	  int length = 0;
+Continuing.
+
+Breakpoint 3, my_strchr (str=0x400d90 "Hello World!", ch=108) at answer02.c:31
+31	  int length = my_strlen(str) + 1;
+
+Breakpoint 1, my_strlen (str=0x400d90 "Hello World!") at answer02.c:6
+6	  int length = 0;
+7	  while (str[length] != '\0') 
+9	      length++;
+7	  while (str[length] != '\0') 
+9	      length++;
+7	  while (str[length] != '\0') 
+9	      length++;
+$3 = 108 'l'
+7	  while (str[length] != '\0') 
+Continuing.
+
+Breakpoint 3, my_strchr (str=0x400d9d "", ch=111) at answer02.c:31
+31	  int length = my_strlen(str) + 1;
+Continuing.
+
+Breakpoint 1, my_strlen (str=0x400d9d "") at answer02.c:6
+6	  int length = 0;
+Continuing.
+
+Breakpoint 3, my_strchr (str=0x400d9e "foo", ch=0) at answer02.c:31
+31	  int length = my_strlen(str) + 1;
+Continuing.
+
+Breakpoint 1, my_strlen (str=0x400d9e "foo") at answer02.c:6
+6	  int length = 0;
+Continuing.
+
+Program exited normally.

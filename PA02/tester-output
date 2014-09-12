@@ -1,0 +1,111 @@
+   ---------------------------------------------------------------------------
+   Welcome to the PA02 testing program. This program takes a _long_ time
+   to execute. There is a reason for this. You should not rely on this
+   program to test your code as you go. Instead, you should think about
+   what your code should be doing, and what inputs should produce what
+   outputs for each of your functions.
+   
+        YOU SHOULD THEN TEST EVERY PIECE OF CODE AS YOU WRITE IT 
+   
+                                 AND 
+   
+                        FIX MISTAKES AS YOU GO.
+   
+   When you are convinced that you have the entire assignment 100% correct,
+   then you can use this testing program to test it. 
+   
+   This will give you your mark assuming that you submit it correctly, and 
+   there are no other irregularities.
+   ---------------------------------------------------------------------------
+
+Testing my_strlen(...)
+   my_strlen("") == 0
+   my_strlen("a") == 1
+   my_strlen("ab") == 2
+   my_strlen("abc") == 3
+   my_strlen("Hello World!") == 12
+Testcase passed.
+
+Testing my_countchar(...)
+   my_countchar("", ' ') == 0
+   my_countchar("a", 'a') == 1
+   my_countchar("a", 'b') == 0
+   my_countchar("aAa", 'a') == 2
+   my_countchar("aba", 'b') == 1
+   my_countchar("Hello World!", 'o') == 2
+Testcase passed.
+
+Testing my_strchr(...)
+   s = "Hello World!"; my_strchr(s, 'o') - s == 4
+   s = "Hello World!"; my_strchr(s, 'z') == NULL
+   s = "Hello World!"; my_strchr(s, '\\0') - s == 12
+   s = ""; my_strchr(s, ' ') == NULL
+   s = ""; my_strchr(s, '\\0') - s == 0
+   s = "Find First char"; my_strchr(s, 'F') - s == 0
+   s = "!Find last char!"; my_strchr(s, '!') - s == 0
+Testcase passed.
+
+Testing my_strrchr(...)
+   s = "Hello World!"; my_strrchr(s, 'o') - s == 7
+   s = "Hello World!"; my_strrchr(s, 'z') == NULL
+   s = "Hello World!"; my_strrchr(s, '\\0') - s == 12
+   s = ""; my_strrchr(s, ' ') == NULL
+   s = ""; my_strrchr(s, '\\0') - s == 0
+   s = "Find First 'F' from right"; my_strrchr(s, 'F') - s == 12
+   s = "Find first char"; my_strrchr(s, 'F') - s == 0
+   s = "!Find last char!"; my_strrchr(s, '!') - s == 15
+Testcase passed.
+
+Testing my_strstr(...)
+   s = "Hello World!"; my_strstr(s, "World") == NULL. FAIL
+   s = "Hello World!"; my_strstr(s, "") - s == 0
+   s = "Hello World!"; my_strstr(s, "hello") == NULL
+   s = ""; my_strstr(s, "hello") == NULL
+   s = ""; my_strstr(s, "") - s == 0
+   s = "Hello World!"; my_strstr(s, "!") - s == 0. FAIL
+
+Testing my_strcpy(...)
+   char buffer[50];
+   s = "Hello World!"; my_strcpy(buffer, s); 
+   s = ""; my_strcpy(buffer, s); 
+   s = "1"; my_strcpy(buffer, s); 
+   s = "The quick brown fox jumped over the lazy dog."; my_strcpy(buffer, s); 
+Testcase passed.
+
+Testing my_strcat(...)
+   char buffer[50];
+   my_strcpy(buffer, "Hello "); my_strcat(buffer, "World!"); buffer == "Hello World!"
+   my_strcpy(buffer, ""); my_strcat(buffer, "World!"); buffer == "World!"
+   my_strcpy(buffer, "Hello"); my_strcat(buffer, ""); buffer == "Hello"
+   my_strcpy(buffer, ""); my_strcat(buffer, ""); buffer == ""
+   my_strcpy(buffer, "The quick brown fox jumped over the lazy "); my_strcat(buffer, "cat"); buffer == "The quick brown fox jumped over the lazy cat"
+Testcase passed.
+
+Testing my_isspace(...)
+   my_isspace(' ') == TRUE
+   my_isspace('\\f') == TRUE
+   my_isspace('\\n') == TRUE
+   my_isspace('\\r') == TRUE
+   my_isspace('\\t') == TRUE
+   my_isspace('\\v') == TRUE
+   my_isspace('a') == FALSE
+   my_isspace('-') == FALSE
+   my_isspace('Z') == FALSE
+   my_isspace(':') == FALSE
+   my_isspace('\\a') == FALSE
+   my_isspace('\\0') == FALSE
+   my_isspace('@') == FALSE
+Testcase passed.
+
+Testing my_atoi(...)
+   my_atoi("0") == 0
+   my_atoi("-12") == -12
+   my_atoi("15th of March would be the ides.") == 15
+   my_atoi("4 months to Summer.") == 4
+   my_atoi(" 1 white space character handled correctly.") == 1
+   my_atoi("garbage should yield 0") == 0
+Testcase passed.
+
+
+8/9 testcases passed.
+Overall mark is a FAIL.

@@ -66,7 +66,7 @@ char * my_strstr(const char * haystack, const char * needle)
 
   for(hay_ind = 0; haystack[hay_ind] != '\0'; hay_ind++) 
     {
-      for(needle_ind = 0; needle[needle_ind] == haystack[hay_ind + needle_ind]; needle_ind++);
+      for(needle_ind = 0; needle[needle_ind] == haystack[hay_ind + needle_ind]; needle_ind++)
         {
           if (needle[needle_ind + 1] == '\0')
             {

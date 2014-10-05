@@ -39,6 +39,8 @@ void partitionAll(int value)
   free(ans);
 }
 
+
+//Increasing
 void partitionI(int * arr, int cnt, int value, int ind)
 {
   int in;
@@ -65,6 +67,7 @@ void partitionIncreasing(int value)
   free(ans);
 }
 
+//Decreasing
 void partitionD(int * arr, int cnt, int value, int ind)
 {
   int in;
@@ -92,4 +95,101 @@ void partitionDecreasing(int value)
 }
 
 
+//Odd
+void partitionO(int * arr, int cnt, int value)
+{
+  int ind;
+  if (value == 0)
+  {
+    printf("= ");
+    printPar(arr, cnt);
+  }
+  for (ind = 1; ind <= value; ind++)
+  {
+    if (ind % 2 != 0)
+    {
+      arr[cnt] = ind;
+      partitionO(arr, cnt + 1, value - ind);
+    }
+  }
+}
 
+void partitionOdd(int value)
+{
+  int count = 0;
+  int * ans = malloc(value * sizeof(int));
+  partitionO(ans, count, value);
+}
+
+
+//Even
+void partitionE(int * arr, int cnt, int value)
+{
+  int ind;
+  if (value == 0)
+  {
+    printf("= ");
+    printPar(arr, cnt);
+  }
+  for (ind = 1; ind <= value; ind++)
+  {
+    if (ind % 2 == 0)
+    {
+      arr[cnt] = ind;
+      partitionE(arr, cnt + 1, value - ind);
+    }
+  }
+}
+
+void partitionEven(int value)
+{
+  int count = 0;
+  int * ans = malloc(value * sizeof(int));
+  partitionE(ans, count, value);
+}
+
+
+//Odd And Even
+void partitionOE(int * arr, int cnt, int value, int dec)
+{
+  int ind;
+  if (value == 0)
+  {
+    printf("= ");
+    printPar(arr, cnt);
+  }
+  for (ind = 1; ind <= value; ind++)
+  {
+    if (dec != 0)
+    {
+      if (ind % 2 == 0)
+      {
+        arr[cnt] = ind;
+        partitionOE(arr, cnt + 1, value - ind, 0);
+      }
+    }
+    if (dec != 1)
+    {  
+      if (ind % 2 != 0)
+      {
+        arr[cnt] = ind;
+        partitionOE(arr, cnt + 1, value - ind, 1);
+      }
+    }
+  }
+}
+
+void partitionOddAndEven(int value)
+{
+  int count = 0;
+  int dec = 2;
+  int * ans = malloc(value * sizeof(int));
+  partitionOE(ans, count, value, dec);
+}
+
+
+int main()
+{
+  partitionOddAndEven(6);
+  return 0;
+}

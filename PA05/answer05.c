@@ -39,8 +39,57 @@ void partitionAll(int value)
   free(ans);
 }
 
-
-void partitionIncreasing(int value);
+void partitionI(int * arr, int cnt, int value, int ind)
 {
-  
+  int in;
+  if (value == 0)
+  {
+    printf("= ");
+    printPar(arr, cnt);
+  }
+  for (in = ind;in <= value; in++)
+  {
+    arr[cnt] = in;
+    cnt ++;
+    partitionI(arr, cnt, value - in, in + 1);
+    cnt --;
+  }
 }
+
+void partitionIncreasing(int value)
+{
+  int count = 0;
+  int inde = 1;
+  int * ans = malloc(value * sizeof(int));
+  partitionI(ans, count, value, inde);
+  free(ans);
+}
+
+void partitionD(int * arr, int cnt, int value, int ind)
+{
+  int in;
+  if (value == 0)
+  {
+    printf("= ");
+    printPar(arr, cnt);
+  }
+  for (in = ind;in > 0; in--)
+  {
+    arr[cnt] = in;
+    cnt ++;
+    partitionD(arr, cnt, value - in, in - 1);
+    cnt --;
+  }
+}
+
+void partitionDecreasing(int value)
+{
+  int count = 0;
+  int ind = value;
+  int * ans = malloc(value * sizeof(int));
+  partitionD(ans, count, value, ind);
+  free (ans);
+}
+
+
+
